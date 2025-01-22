@@ -39,4 +39,11 @@ public class GameService {
         throw new ResourceNotFoundException(id);
     }
 
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId) {
+        return gameRepository.findByList(listId)
+                .stream()
+                .map(GameMinDTO::new)
+                .toList();
+    }
 }

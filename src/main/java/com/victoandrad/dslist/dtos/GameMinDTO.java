@@ -1,6 +1,7 @@
 package com.victoandrad.dslist.dtos;
 
 import com.victoandrad.dslist.models.Game;
+import com.victoandrad.dslist.projections.GameMinProjection;
 import org.springframework.beans.BeanUtils;
 
 public class GameMinDTO {
@@ -16,6 +17,10 @@ public class GameMinDTO {
 
     public GameMinDTO(Game entity) {
         BeanUtils.copyProperties(entity, this);
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        BeanUtils.copyProperties(projection, this);
     }
 
     public Long getId() {
